@@ -54,6 +54,14 @@ li + li { margin-top: 7px; }
 .publication-list > li { padding-left: 7px; margin-bottom: 8px; }
 .paper-title { font-weight: 400; }
 .paper-authors, .paper-venue { display: inline; margin: 0; }
+.paper-doi { white-space: normal; font-size: .9em; }
+.paper-doi a { overflow-wrap: anywhere; }
+.publication-summary { color: #555; font-size: .9em; }
+.research-nav { margin: 20px 0 32px; }
+.publication-years { margin: 12px 0 24px; font-size: .95em; }
+.research-nav a, .publication-years a { display: inline-block; margin: 3px 0; }
+.publication-year { margin-top: 26px; }
+.publication-year h3 { padding-bottom: 5px; border-bottom: 1px solid #e5e5e5; font-size: 23px; }
 .paper-links { margin-left: 8px; }
 .paper-links a + a { margin-left: 16px; }
 .profile-links a + a { margin-left: 18px; }
