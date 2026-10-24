@@ -14,6 +14,9 @@ export const profile = {
   positionEn: 'Associate Professor',
   affiliationZh: '华中科技大学 · 数学与统计学院',
   affiliationEn: 'School of Mathematics and Statistics, Huazhong University of Science and Technology',
+  // 完整通信地址仅用于联系方式，不用于首页任职介绍。
+  addressZh: '中国武汉市珞喻路1037号，华中科技大学数学与统计学院，邮编430074。',
+  addressEn: 'School of Mathematics and Statistics, Huazhong University of Science and Technology, Luoyu Road 1037, Wuhan, 430074, China.',
   officialHomepage: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/index.htm',
   publicationsUrl: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/lwcg/2160295/list/index.htm',
   academicLinks: [

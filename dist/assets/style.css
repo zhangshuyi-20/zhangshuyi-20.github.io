@@ -19,7 +19,7 @@ img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
 .skip-link { position: absolute; z-index: 10; top: -100px; left: 30px; padding: 8px 14px; background: #fff; color: #0000ee; }
 .skip-link:focus { top: 8px; }
-.site-header { background: #333; color: #fff; }
+.site-header { background: #1e4f8a; color: #fff; }
 .site-nav { display: flex; align-items: center; flex-wrap: wrap; min-height: 86px; padding: 12px 10px; column-gap: 24px; row-gap: 6px; }
 .site-nav a { display: inline-block; color: #fff; font-size: 18px; line-height: 1.5; text-decoration: none; }
 .site-nav a:visited { color: #fff; }
