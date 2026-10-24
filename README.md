@@ -4,7 +4,9 @@
 
 仓库：<https://github.com/zhangshuyi-20/zhangshuyi-20.github.io>
 
-中文和英文网站均包含首页、研究、教学和个人简介。您在 GitHub 保存内容后，网站会自动生成并发布。
+中文和英文网站均包含首页、教学、研究与论文、个人经历。您在 GitHub 保存内容后，网站会自动生成并发布。
+
+网站采用简洁学术主页排版：深灰导航、白底正文、编号论文列表。首页照片位于 `dist/assets/portrait.jpg`，可上传同名文件替换；照片路径在 `profile.portrait` 中设置。当前照片来自[华中科技大学官方介绍](https://iirmas.hust.edu.cn/info/1021/1092.htm)。
 
 ## 日常更新
 
@@ -23,7 +25,7 @@
 | 论文列表 | `publications` |
 | 课程介绍、主题和资料 | `courses` |
 | 历年授课记录 | `teachingHistory` |
-| 首页简介、关于页面及界面文字 | `ui` |
+| 首页简介、个人经历页面及界面文字 | `ui` |
 
 ## 添加论文
 
