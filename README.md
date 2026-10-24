@@ -6,7 +6,7 @@
 
 网站默认使用英语，中文辅助版本位于 `/zh/`。首页以研究领域和近期论文为主，完整论文目录位于研究页面；教学页面收录学院个人主页的 19 条授课记录，不展示学历信息。旧 `/en/` 地址会自动转向英语主站。您在 GitHub 保存内容后，网站会自动生成并发布。
 
-网站采用简洁学术主页排版：深灰导航、白底正文、编号论文列表。首页照片位于 `dist/assets/portrait.jpg`，可上传同名文件替换；照片路径在 `profile.portrait` 中设置。当前照片来自[华中科技大学官方介绍](https://iirmas.hust.edu.cn/info/1021/1092.htm)。
+网站采用简洁学术主页排版：深灰导航、白底正文、编号论文列表。研究页面将已发表论文与公开预印本分开，按年份分组，提供年份导航；各分类内连续编号。首页只显示最近三篇已发表论文，论文数量自动计算。首页照片位于 `dist/assets/portrait.jpg`，可上传同名文件替换；照片路径在 `profile.portrait` 中设置。当前照片来自[华中科技大学官方介绍](https://iirmas.hust.edu.cn/info/1021/1092.htm)。
 
 ## 日常更新
 
@@ -35,14 +35,38 @@
   title: '论文英文题目',
   authors: '作者姓名，按论文署名顺序填写',
   year: 2026,
-  venue: '期刊名称、卷号和页码或文章编号',
+  journal: '期刊名称',
+  volume: '卷号',
+  issue: '期号',
+  pages: '起始页–终止页',
+  // 使用文章编号的期刊可用 articleNumber: '文章编号'，无需重复填写 pages。
+  doi: '实际DOI，不含 https://doi.org/',
   status: 'published',
   url: 'https://doi.org/填写实际DOI',
+  publishedDate: '2026-05-11',
   topic: 'stochastic-pdes',
 },
 ```
 
-`status` 可填 `published` 或 `preprint`；`topic` 对应研究方向的 `id`，目前有 `dispersive-equations`、`stochastic-pdes` 和 `stochastic-control`。如有公开全文，可以增加 `pdf: '实际PDF链接',`。
+`status` 可填 `published`（已正式发表）或 `preprint`（已公开预印本）。只添加已公开且作者身份核对无误的论文，不上传本地私稿或未公开投稿。`year` 使用正式出版年份；可选的 `publishedDate` 用于同一年内排序。作者必须按原论文署名顺序完整填写。没有核实的 DOI、期号或页码请省略，不要猜填。
+
+公开 arXiv 预印本可按以下格式填写，不应使用尚无证据的“已接收”状态：
+
+```js
+{
+  title: '公开预印本英文题目',
+  authors: '作者姓名，按署名顺序填写',
+  year: 2026,
+  arxiv: '实际arXiv编号',
+  doi: '10.48550/arXiv.实际编号',
+  status: 'preprint',
+  url: 'https://arxiv.org/abs/实际编号',
+  publishedDate: '2026-09',
+  topic: 'dispersive-equations',
+},
+```
+
+论文正式发表后，将同一条记录更新为期刊信息和 `status: 'published'`，避免两类中重复列出。`topic` 对应研究方向的 `id`，目前有 `dispersive-equations`、`stochastic-pdes` 和 `stochastic-control`。如有公开全文，可以增加 `pdf: '实际PDF链接',`。
 
 ## 上传教学讲义
 
