@@ -21,11 +21,7 @@ export const profile = {
 };
 
 // 教育及博士后经历；zh 为中文，en 为英文。
-export const education = [
-  { period: '2016–2018', zh: { title: '博士后 · 华中科技大学', detail: '数学与统计学院；合作导师：刘斌' }, en: { title: 'Postdoctoral researcher · HUST', detail: 'School of Mathematics and Statistics; mentor: Bin Liu' } },
-  { period: '2012–2016', zh: { title: '应用数学博士 · 华中科技大学', detail: '数学与统计学院；导师：刘斌' }, en: { title: 'Ph.D. in Applied Mathematics · HUST', detail: 'School of Mathematics and Statistics; advisor: Bin Liu' } },
-  { period: '2007–2011', zh: { title: '数学与应用数学学士 · 湖北工程学院', detail: '数学与统计学院' }, en: { title: 'B.Sc. in Mathematics and Applied Mathematics', detail: 'Hubei Engineering University' } },
-];
+export const education = [];
 
 // 历年授课记录；请保留对应学期。
 export const teachingHistory = [
@@ -208,7 +204,7 @@ export const ui = {
     materialsTitle: '学习资料', materialsBody: '讲义、习题和补充材料将按课程持续整理。',
     aboutKicker: 'ABOUT', aboutHeading: '关于', aboutLead: '张磊 · 华中科技大学数学与统计学院',
     aboutBody: '我是张磊，现任华中科技大学数学与统计学院副教授。我的研究涉及非线性偏微分方程、随机偏微分方程及相关控制问题，关注适定性、散射与长时间行为，以及随机扰动对方程动力学的影响。',
-    educationTitle: '教育与研究经历',
+    educationTitle: '',
     aboutSite: '关于本站', aboutSiteBody: '这个网站用于汇集研究信息、公开论文和教学资料。研究栏目介绍主要方向，教学栏目按课程整理学习内容。',
     interestsSmall: '研究关键词', contact: '联系方式', contactPending: '联系方式将在补充后公布。',
     browseResearch: '浏览研究栏目', browseTeaching: '浏览教学栏目',
@@ -240,7 +236,7 @@ export const ui = {
     materialsTitle: 'Learning materials', materialsBody: 'Lecture notes, exercises, and supplementary material will be organized by course.',
     aboutKicker: 'ABOUT', aboutHeading: 'About', aboutLead: 'Lei Zhang · School of Mathematics and Statistics, HUST',
     aboutBody: 'I am Lei Zhang, an Associate Professor in the School of Mathematics and Statistics at Huazhong University of Science and Technology. My research interests lie in nonlinear PDEs, stochastic PDEs, and related control problems, including well-posedness, scattering, long-time behavior, and the effects of noise on the dynamics.',
-    educationTitle: 'Education & research experience',
+    educationTitle: '',
     aboutSite: 'About this website', aboutSiteBody: 'This website brings together research information, public papers, and teaching materials. The research page introduces my main interests; the teaching page organizes learning material by course.',
     interestsSmall: 'RESEARCH KEYWORDS', contact: 'Contact', contactPending: 'Contact information will be added here.',
     browseResearch: 'Explore research', browseTeaching: 'Explore teaching',
