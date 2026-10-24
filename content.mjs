@@ -7,6 +7,8 @@ export const profile = {
   initials: 'LZ',
   updated: '2026-10-24',
   origin: 'https://zhangshuyi-20.github.io',
+  // 个人照片：替换 dist/assets/portrait.jpg 即可更新。
+  portrait: '/assets/portrait.jpg',
   email: 'lei_zhang@hust.edu.cn',
   positionZh: '副教授',
   positionEn: 'Associate Professor',
@@ -25,8 +27,196 @@ export const education = [];
 
 // 历年授课记录；请保留对应学期。
 export const teachingHistory = [
-  { termZh: '2024 秋季', termEn: 'Autumn 2024', titleZh: '微积分（A）（上）', titleEn: 'Calculus A · Part I', url: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3302.htm' },
-  { termZh: '2022 春季', termEn: 'Spring 2022', titleZh: '微积分（A）（下）', titleEn: 'Calculus A · Part II', url: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3307.htm' },
+  {
+    "id": "3361",
+    "courseId": "calculus-a-1",
+    "termZh": "2026秋季",
+    "termEn": "Autumn 2026",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "网安启明2601班、力学启明2601班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3361.htm#skxx"
+  },
+  {
+    "id": "3301",
+    "courseId": "calculus-a-1",
+    "termZh": "2025秋季",
+    "termEn": "Autumn 2025",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "网安启明2501班、能源启明2501班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3301.htm#skxx"
+  },
+  {
+    "id": "3302",
+    "courseId": "calculus-a-1",
+    "termZh": "2024秋季",
+    "termEn": "Autumn 2024",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "能源启明2401班、网安启明2401班、化学强基2401班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3302.htm#skxx"
+  },
+  {
+    "id": "3303",
+    "courseId": "calculus-a-1",
+    "termZh": "2023秋季",
+    "termEn": "Autumn 2023",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "电气本硕博2301班、网安本硕博2301班、化学强基2301班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3303.htm#skxx"
+  },
+  {
+    "id": "3323",
+    "courseId": "calculus-a-2",
+    "termZh": "2023春季",
+    "termEn": "Spring 2023",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "人工智能本硕博2201班、光电本硕博2201班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3323.htm#skxx"
+  },
+  {
+    "id": "3304",
+    "courseId": "calculus-a-2",
+    "termZh": "2023春季",
+    "termEn": "Spring 2023",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "材料本硕博2201班、机械本硕博2201班、生命强基登峰2201班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3304.htm#skxx"
+  },
+  {
+    "id": "3306",
+    "courseId": "calculus-a-1",
+    "termZh": "2022秋季",
+    "termEn": "Autumn 2022",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "网安本硕博2201班、电气本硕博2201班、化学强基2201班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3306.htm#skxx"
+  },
+  {
+    "id": "3307",
+    "courseId": "calculus-a-2",
+    "termZh": "2022春季",
+    "termEn": "Spring 2022",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "未来技术本硕博2101-2102",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3307.htm#skxx"
+  },
+  {
+    "id": "3324",
+    "courseId": "calculus-a-2",
+    "termZh": "2022春季",
+    "termEn": "Spring 2022",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "未来技术本硕博2103-2104",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3324.htm#skxx"
+  },
+  {
+    "id": "3309",
+    "courseId": "calculus-a-1",
+    "termZh": "2021秋季",
+    "termEn": "Autumn 2021",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "未来技术本硕博2103-2104",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3309.htm#skxx"
+  },
+  {
+    "id": "3310",
+    "courseId": "calculus-a-2",
+    "termZh": "2021春季",
+    "termEn": "Spring 2021",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "电气本硕博2001班、能源本硕博2001班、网安本硕博2001班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3310.htm#skxx"
+  },
+  {
+    "id": "3322",
+    "courseId": "calculus-a-2",
+    "termZh": "2021春季",
+    "termEn": "Spring 2021",
+    "titleZh": "微积分（A）（下）",
+    "titleEn": "Calculus A, Part II",
+    "classesZh": "物理强基2001班、化学强基2001班、计算机本硕博2001班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3322.htm#skxx"
+  },
+  {
+    "id": "3321",
+    "courseId": "calculus-a-1",
+    "termZh": "2020秋季",
+    "termEn": "Autumn 2020",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "网安本硕博2001班、电气本硕博2001班、能源本硕博2001班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3321.htm#skxx"
+  },
+  {
+    "id": "3312",
+    "courseId": "calculus-a-1",
+    "termZh": "2020秋季",
+    "termEn": "Autumn 2020",
+    "titleZh": "微积分（A）（上）",
+    "titleEn": "Calculus A, Part I",
+    "classesZh": "化学强基2001班、物理强基2001班、计算机本硕博2001班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3312.htm#skxx"
+  },
+  {
+    "id": "3314",
+    "courseId": "analysis-2-tutorial",
+    "termZh": "2020春季",
+    "termEn": "Spring 2020",
+    "titleZh": "数学分析（二）习题课",
+    "titleEn": "Problem Sessions in Mathematical Analysis II",
+    "classesZh": "",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3314.htm#skxx"
+  },
+  {
+    "id": "3320",
+    "courseId": "calculus-3",
+    "termZh": "2019秋季",
+    "termEn": "Autumn 2019",
+    "titleZh": "微积分（三）",
+    "titleEn": "Calculus III",
+    "classesZh": "建筑1901-1905",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3320.htm#skxx"
+  },
+  {
+    "id": "3315",
+    "courseId": "calculus-3",
+    "termZh": "2019秋季",
+    "termEn": "Autumn 2019",
+    "titleZh": "微积分（三）",
+    "titleEn": "Calculus III",
+    "classesZh": "社会1901-1903",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3315.htm#skxx"
+  },
+  {
+    "id": "3319",
+    "courseId": "analysis-3-tutorial",
+    "termZh": "2018秋季",
+    "termEn": "Autumn 2018",
+    "titleZh": "数学分析（三）习题课",
+    "titleEn": "Problem Sessions in Mathematical Analysis III",
+    "classesZh": "",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3319.htm#skxx"
+  },
+  {
+    "id": "3317",
+    "courseId": "calculus-3",
+    "termZh": "2018秋季",
+    "termEn": "Autumn 2018",
+    "titleZh": "微积分（三）",
+    "titleEn": "Calculus III",
+    "classesZh": "英商1801班、国商1801班",
+    "url": "http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/content/3317.htm#skxx"
+  }
 ];
 
 // 研究方向及中英文介绍。
@@ -129,60 +319,65 @@ export const publications = [
 // 课程介绍及教学资料。附件放在 dist/files/，链接填写 /files/文件名.pdf。
 export const courses = [
   {
-    id: 'linear-algebra', number: '01', code: 'LINEAR ALGEBRA',
-    zh: {
-      title: '线性代数', subtitle: '从线性方程组到线性变换',
-      description: '围绕行列式、矩阵、向量空间和特征值，整理基本概念、计算方法与证明思路。',
-      themes: [
-        ['行列式与矩阵', '行列式的性质与计算；矩阵运算、逆矩阵与初等变换。'],
-        ['线性方程组', '消元法、矩阵的秩、解的结构与线性相关性。'],
-        ['向量空间与线性映射', '子空间、基与维数；线性映射的矩阵表示。'],
-        ['特征值与二次型', '特征值与特征向量；对角化、正交变换与二次型。'],
-      ],
+    "id": "calculus-a-1",
+    "zh": {
+      "title": "微积分（A）（上）"
     },
-    en: {
-      title: 'Linear algebra', subtitle: 'From linear systems to linear transformations',
-      description: 'Fundamental concepts, calculations, and proofs involving determinants, matrices, vector spaces, and eigenvalues.',
-      themes: [
-        ['Determinants and matrices', 'Properties of determinants; matrix operations, inverses, and elementary transformations.'],
-        ['Linear systems', 'Elimination, matrix rank, solution spaces, and linear dependence.'],
-        ['Vector spaces and linear maps', 'Subspaces, bases, dimension, and matrix representations of linear maps.'],
-        ['Eigenvalues and quadratic forms', 'Eigenvectors, diagonalization, orthogonal transformations, and quadratic forms.'],
-      ],
+    "en": {
+      "title": "Calculus A, Part I"
     },
-    resources: [],
+    "resources": []
   },
   {
-    id: 'calculus', number: '02', code: 'CALCULUS',
-    zh: {
-      title: '微积分', subtitle: '理解极限、变化与累积',
-      description: '围绕极限、连续、微分与积分，梳理定理之间的联系以及计算和证明中的基本方法。',
-      themes: [
-        ['函数、极限与连续', '函数的基本性质；数列与函数极限；连续性与介值性质。'],
-        ['导数与微分', '导数的定义和运算；微分中值定理与 Taylor 公式。'],
-        ['导数的应用', '函数单调性、极值、凸性与不等式证明。'],
-        ['积分与应用', '不定积分、定积分、微积分基本定理及其应用。'],
-      ],
+    "id": "calculus-a-2",
+    "zh": {
+      "title": "微积分（A）（下）"
     },
-    en: {
-      title: 'Calculus', subtitle: 'Limits, change, and accumulation',
-      description: 'Limits, continuity, differentiation, and integration, with attention to the connections between theorems and the methods behind calculations and proofs.',
-      themes: [
-        ['Functions, limits, and continuity', 'Basic properties of functions; limits of sequences and functions; continuity and the intermediate value theorem.'],
-        ['Derivatives and differentials', 'The derivative and differentiation rules; mean value theorems and Taylor expansions.'],
-        ['Applications of derivatives', 'Monotonicity, extrema, convexity, and proofs of inequalities.'],
-        ['Integration and applications', 'Antiderivatives, definite integrals, and the fundamental theorem of calculus.'],
-      ],
+    "en": {
+      "title": "Calculus A, Part II"
     },
-    resources: [],
+    "resources": []
   },
+  {
+    "id": "calculus-3",
+    "zh": {
+      "title": "微积分（三）"
+    },
+    "en": {
+      "title": "Calculus III"
+    },
+    "resources": []
+  },
+  {
+    "id": "analysis-2-tutorial",
+    "zh": {
+      "title": "数学分析（二）习题课"
+    },
+    "en": {
+      "title": "Problem Sessions in Mathematical Analysis II"
+    },
+    "resources": []
+  },
+  {
+    "id": "analysis-3-tutorial",
+    "zh": {
+      "title": "数学分析（三）习题课"
+    },
+    "en": {
+      "title": "Problem Sessions in Mathematical Analysis III"
+    },
+    "resources": []
+  }
 ];
 
 // 首页、关于页面和导航的中英文文字：zh 为中文，en 为英文。
 export const ui = {
   zh: {
     lang: 'zh-CN', title: '张磊 Lei Zhang · 华中科技大学', description: '张磊（Lei Zhang），华中科技大学数学与统计学院副教授。研究非线性偏微分方程、随机偏微分方程及随机控制。个人主页提供研究论文、教学信息与联系方式。',
-    nav: { home: '首页', research: '研究', teaching: '教学', about: '关于' },
+    nav: { home: '首页', research: '研究与论文', teaching: '教学', about: '学术简介' },
+    welcome: '欢迎访问！', homeContact: '联系方式', currentPosition: '现任职务',
+    appointmentBefore: '我目前在', appointmentBetween: '任', appointmentAfter: '。',
+    preprints: '预印本', publishedPapers: '部分已发表论文',
     skip: '跳至正文', menu: '打开导航菜单', closeMenu: '收起导航菜单',
     eyebrow: 'HUST · MATHEMATICS & STATISTICS',
     field: '偏微分方程 · 随机分析',
@@ -190,19 +385,19 @@ export const ui = {
     heroBody: '我的研究涉及非线性偏微分方程、随机偏微分方程及随机控制，关注解的适定性、长时间行为与噪声的作用。',
     researchLink: '了解我的研究', teachingLink: '浏览教学栏目',
     waveLabel: '非线性薛定谔方程 · 孤立波振幅示意',
-    interests: '研究方向', interestNote: '我的主要研究兴趣', allResearch: '全部研究方向',
+    interests: '研究领域', interestNote: '我的主要研究兴趣', allResearch: '全部研究领域',
     researchIntro: '我关注解的适定性、散射与长时间行为，以及噪声对方程动力学的影响。我也关注随机分布参数系统中的控制问题。',
     researchKicker: 'RESEARCH', researchHeading: '研究', researchLead: '非线性、随机性与方程的长期行为。',
     onThisPage: '本页内容', topicsLabel: '研究方向', papersLabel: '部分论文',
     papersIntro: '以下列出部分已发表论文，点击题目可访问期刊页面。', papersEmpty: '论文目录待补充', papersEmptyDetail: '公开稿件、出版信息和全文链接将随条目一同更新。',
     recentPapers: '近期论文', allPapers: '查看论文目录', officialPapers: '学校主页的完整论文目录', officialHomepage: '学校主页',
     teachingKicker: 'TEACHING', teachingHeading: '教学', teachingLead: '按课程整理概念、方法与学习资料。',
-    teachingIntro: '这里用于整理讲义、习题和补充阅读材料。课程主题可在下方展开查看。',
-    teachingHistory: '部分授课记录', teachingHistoryNote: '以下为学校教师主页列出的部分授课信息。',
+    teachingIntro: '以下授课信息整理自学院个人主页，点击课程名称可查看原始记录。',
+    teachingHistory: '授课记录', coursesLabel: '课程', classesLabel: '官网班级信息', officialTeaching: '学院个人主页的授课信息', teachingHistoryNote: '以下为学校教师主页列出的部分授课信息。',
     teachingHomeTitle: '教学与学习', teachingHomeText: '从概念到方法，从计算到证明。按课程整理学习主题、讲义与习题。',
     courseThemes: '查看课程主题', courseResources: '课程资料', resourceEmpty: '讲义与习题整理中，将在本页更新。',
     materialsTitle: '学习资料', materialsBody: '讲义、习题和补充材料将按课程持续整理。',
-    aboutKicker: 'ABOUT', aboutHeading: '关于', aboutLead: '张磊 · 华中科技大学数学与统计学院',
+    aboutKicker: 'PROFILE', aboutHeading: '学术简介', aboutLead: '张磊 · 华中科技大学数学与统计学院',
     aboutBody: '我是张磊，现任华中科技大学数学与统计学院副教授。我的研究涉及非线性偏微分方程、随机偏微分方程及相关控制问题，关注适定性、散射与长时间行为，以及随机扰动对方程动力学的影响。',
     educationTitle: '',
     aboutSite: '关于本站', aboutSiteBody: '这个网站用于汇集研究信息、公开论文和教学资料。研究栏目介绍主要方向，教学栏目按课程整理学习内容。',
@@ -214,7 +409,10 @@ export const ui = {
   },
   en: {
     lang: 'en', title: 'Lei Zhang · Huazhong University of Science and Technology', description: 'Lei Zhang, Associate Professor at the School of Mathematics and Statistics, Huazhong University of Science and Technology. Research in nonlinear PDEs, stochastic PDEs, and stochastic control; publications and teaching information.',
-    nav: { home: 'Home', research: 'Research', teaching: 'Teaching', about: 'About' },
+    nav: { home: 'Homepage', research: 'Research', teaching: 'Teaching', about: 'Academic profile' },
+    welcome: 'Welcome!', homeContact: 'Contact Me', currentPosition: 'Current position',
+    appointmentBefore: 'I am an', appointmentBetween: 'at the', appointmentAfter: '.',
+    preprints: 'Preprints', publishedPapers: 'Selected Publications',
     skip: 'Skip to main content', menu: 'Open navigation', closeMenu: 'Close navigation',
     eyebrow: 'HUST · MATHEMATICS & STATISTICS',
     field: 'Partial differential equations · Stochastic analysis',
@@ -222,19 +420,19 @@ export const ui = {
     heroBody: 'My research interests lie in nonlinear partial differential equations, especially nonlinear dispersive equations, stochastic PDEs, and stochastic control.',
     researchLink: 'Explore my research', teachingLink: 'Browse teaching',
     waveLabel: 'NONLINEAR SCHRÖDINGER EQUATION · SOLITON AMPLITUDE',
-    interests: 'Research interests', interestNote: 'Questions I work on', allResearch: 'Explore research',
+    interests: 'Research Interests', interestNote: 'Questions I work on', allResearch: 'Explore research',
     researchIntro: 'I am interested in well-posedness, scattering, long-time behavior, and the effects of noise on the dynamics. I also study control problems for stochastic distributed parameter systems.',
     researchKicker: 'RESEARCH', researchHeading: 'Research', researchLead: 'Nonlinearity, randomness, and long-time behavior.',
     onThisPage: 'ON THIS PAGE', topicsLabel: 'Research interests', papersLabel: 'Selected publications',
     papersIntro: 'A selection of published papers. Titles link to the journal pages.', papersEmpty: 'Publication list forthcoming', papersEmptyDetail: 'Each entry will include the public manuscript, publication details, and full-text links.',
-    recentPapers: 'Recent publications', allPapers: 'View publications', officialPapers: 'Full list on the HUST faculty page', officialHomepage: 'HUST profile',
+    recentPapers: 'Recent Publications', allPapers: 'View publications', officialPapers: 'Full list on the HUST faculty page', officialHomepage: 'HUST profile',
     teachingKicker: 'TEACHING', teachingHeading: 'Teaching', teachingLead: 'Concepts, methods, and materials, organized by course.',
-    teachingIntro: 'A space for lecture notes, exercises, and further reading. Expand a course below to explore its topics.',
-    teachingHistory: 'Selected teaching records', teachingHistoryNote: 'Selected teaching entries from the official HUST faculty page.',
+    teachingIntro: 'Teaching records from my official HUST faculty page. Course titles are translated into English; the original records are linked below.',
+    teachingHistory: 'Teaching Records', coursesLabel: 'Courses', classesLabel: 'Class information (as listed by HUST)', officialTeaching: 'Teaching information on the HUST faculty page', teachingHistoryNote: 'Selected teaching entries from the official HUST faculty page.',
     teachingHomeTitle: 'Teaching & learning', teachingHomeText: 'From concepts to methods, and from calculations to proofs. Course topics, lecture notes, and exercises in one place.',
     courseThemes: 'Explore course topics', courseResources: 'Course materials', resourceEmpty: 'Lecture notes and exercises will be added here.',
     materialsTitle: 'Learning materials', materialsBody: 'Lecture notes, exercises, and supplementary material will be organized by course.',
-    aboutKicker: 'ABOUT', aboutHeading: 'About', aboutLead: 'Lei Zhang · School of Mathematics and Statistics, HUST',
+    aboutKicker: 'PROFILE', aboutHeading: 'Academic profile', aboutLead: 'Lei Zhang · School of Mathematics and Statistics, HUST',
     aboutBody: 'I am Lei Zhang, an Associate Professor in the School of Mathematics and Statistics at Huazhong University of Science and Technology. My research interests lie in nonlinear PDEs, stochastic PDEs, and related control problems, including well-posedness, scattering, long-time behavior, and the effects of noise on the dynamics.',
     educationTitle: '',
     aboutSite: 'About this website', aboutSiteBody: 'This website brings together research information, public papers, and teaching materials. The research page introduces my main interests; the teaching page organizes learning material by course.',
