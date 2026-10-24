@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { profile, topics, publications, courses, teachingHistory, ui } from '../content.mjs';
+import { profile, publications, courses, teachingHistory, ui } from '../content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -62,7 +62,6 @@ function home(lang) {
   const academicLinks = profile.academicLinks.filter(item => item.url !== profile.officialHomepage).map(item => link(item.url, item[`label${suffix}`]));
   return `${profile.portrait ? `<img class="profile-photo" src="${esc(profile.portrait)}" width="200" height="280" alt="${esc(profile.nameZh)} / ${esc(profile.nameEn)}" fetchpriority="high">` : ''}
 <section class="intro"><h1 class="welcome">${esc(u.welcome)}</h1><p>${appointment}</p><p>${esc(u.heroBody)}</p><p class="profile-links">${[link(`${href(lang, 'research')}#publications`, u.allPapers), ...academicLinks].join(' · ')}</p></section>
-<section id="research-interests"><h2>${esc(u.interests)}</h2><ul>${topics.map(topic => `<li>${link(`${href(lang, 'research')}#${topic.id}`, topic[lang].title)}${lang === 'zh' ? '：' : ': '}${esc(topic[lang].description)}</li>`).join('')}</ul></section>
 <section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang })}<p>${link(`${href(lang, 'research')}#publications`, u.allPapers)} <span class="publication-summary">(${esc(publicationSummary(lang))})</span></p></section>
 <section><h2>${esc(u.homeContact)}</h2>${contact(lang)}</section>`;
 }
@@ -100,10 +99,9 @@ function research(lang) {
   const u = ui[lang];
   return `<h1>${esc(u.researchHeading)}</h1><p>${esc(u.researchIntro)}</p>
 <p class="publication-summary">${esc(publicationSummary(lang))}</p>
-<nav class="research-nav" aria-label="${esc(u.onThisPage)}">${[link('#publications', u.publishedPapers), ...(preprintPapers.length ? [link('#preprints', u.preprints)] : []), link('#research-interests', u.interests)].join(' · ')}</nav>
+<nav class="research-nav" aria-label="${esc(u.onThisPage)}">${[link('#publications', u.publishedPapers), ...(preprintPapers.length ? [link('#preprints', u.preprints)] : [])].join(' · ')}</nav>
 <section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${publishedPapers.length ? papersByYear(publishedPapers, 'published', lang) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
-${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papersByYear(preprintPapers, 'preprint', lang)}</section>` : ''}
-<section id="research-interests"><h2>${esc(u.interests)}</h2><ul class="research-topics">${topics.map(topic => `<li id="${esc(topic.id)}"><strong>${esc(topic[lang].title)}</strong><p>${esc(topic[lang].description)}</p><p>${esc(topic[lang].keywords.join(' · '))}</p><p><em>${esc(topic[lang].question)}</em></p></li>`).join('\n')}</ul></section>`;
+${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papersByYear(preprintPapers, 'preprint', lang)}</section>` : ''}`;
 }
 
 function courseResources(course, lang) {
