@@ -101,7 +101,7 @@ function research(lang) {
 <p class="publication-summary">${esc(publicationSummary(lang))}</p>
 <nav class="research-nav" aria-label="${esc(u.onThisPage)}">${[link('#publications', u.publishedPapers), ...(preprintPapers.length ? [link('#preprints', u.preprints)] : [])].join(' · ')}</nav>
 <section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${publishedPapers.length ? papersByYear(publishedPapers, 'published', lang) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
-${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papersByYear(preprintPapers, 'preprint', lang)}</section>` : ''}`;
+${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papers(preprintPapers, { lang })}</section>` : ''}`;
 }
 
 function courseResources(course, lang) {

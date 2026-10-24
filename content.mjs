@@ -751,6 +751,17 @@ export const publications = [
     "publishedDate": "2020-04-04",
     "updatedDate": "2025-04-16",
     "topic": "dispersive-equations"
+  },
+  {
+    "title": "Global exact controllability for Schrödinger equations with Lipschitz and logarithmic nonlinearities",
+    "authors": "Lei Zhang, Xiuting Li",
+    "year": 2026,
+    "arxiv": "2610.27658",
+    "status": "preprint",
+    "url": "https://arxiv.org/abs/2610.27658",
+    "publishedDate": "2026-10-20",
+    "updatedDate": "2026-10-20",
+    "topic": "stochastic-control"
   }
 ];
 
