@@ -99,8 +99,7 @@ function courseResources(course, lang) {
 function teaching(lang) {
   const u = ui[lang];
   const suffix = lang === 'zh' ? 'Zh' : 'En';
-  return `<h1>${esc(u.teachingHeading)}</h1><p>${esc(u.teachingIntro)}</p>
-<p>${link('http://faculty.hust.edu.cn/ZHANGLEI/zh_CN/skxx/2160301/list/index.htm', u.officialTeaching)}</p>
+  return `<h1>${esc(u.teachingHeading)}</h1>
 <section id="calculus"><h2>${esc(u.coursesLabel)}</h2><ul class="course-list">${courses.map(course => `<li id="${esc(course.id)}">${esc(course[lang].title)}${course.resources.length ? courseResources(course, lang) : ''}</li>`).join('')}</ul></section>
 <section id="teaching-history"><h2>${esc(u.teachingHistory)}</h2><ul class="teaching-history">${teachingHistory.map(course => `<li><span class="period">${esc(course[`term${suffix}`])}</span> ${link(course.url, course[`title${suffix}`], ' target="_blank" rel="noopener noreferrer"')}${course.classesZh ? `<details class="teaching-classes"><summary>${esc(u.classesLabel)}</summary><p lang="zh-CN">${esc(course.classesZh)}</p></details>` : ''}</li>`).join('')}</ul></section>`;
 }
