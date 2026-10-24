@@ -76,8 +76,11 @@ li + li { margin-top: 7px; }
 .resource-list { margin-top: 10px; }
 .resource-list .resource-type { margin-left: 10px; color: #555; font-size: 16px; }
 .teaching-history li { margin-bottom: 8px; }
-.teaching-classes { margin: 3px 0 10px; }
-.teaching-classes summary { width: fit-content; cursor: pointer; font-size: 15px; color: #0000ee; text-decoration: underline; }
+.teaching-classes { display: inline; margin: 0; }
+.teaching-classes summary { display: inline-flex; align-items: baseline; gap: 4px; margin-left: .35em; list-style: none; cursor: pointer; font-size: 15px; color: #0000ee; text-decoration: underline; }
+.teaching-classes summary::-webkit-details-marker { display: none; }
+.teaching-classes summary::before { content: '▸'; font-size: .85em; }
+.teaching-classes[open] summary::before { content: '▾'; }
 .teaching-classes p { margin: 4px 0 0; font-size: 16px; }
 .teaching-history .period { display: inline-block; min-width: 125px; margin-right: 16px; }
 .education-list { list-style: none; padding-left: 0; }
@@ -117,7 +120,7 @@ li + li { margin-top: 7px; }
   .profile-photo { max-width: 37%; width: 128px; margin-left: 17px; }
   .profile-links a { display: inline-block; margin-bottom: 5px; }
   .profile-links a + a { margin-left: 12px; }
-  .teaching-history .period { display: block; margin-right: 0; }
+  .teaching-history .period { display: inline; min-width: 0; margin-right: .5em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

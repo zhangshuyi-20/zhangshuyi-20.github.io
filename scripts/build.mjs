@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'navy-contact-20261024';
+const assetVersion = 'teaching-inline-20261024';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
@@ -101,7 +101,7 @@ function teaching(lang) {
   const suffix = lang === 'zh' ? 'Zh' : 'En';
   return `<h1>${esc(u.teachingHeading)}</h1>
 <section id="calculus"><ul class="course-list">${courses.map(course => `<li id="${esc(course.id)}">${esc(course[lang].title)}${course.resources.length ? courseResources(course, lang) : ''}</li>`).join('')}</ul></section>
-<section id="teaching-history"><h2>${esc(u.teachingHistory)}</h2><ul class="teaching-history">${teachingHistory.map(course => `<li><span class="period">${esc(course[`term${suffix}`])}</span> ${link(course.url, course[`title${suffix}`], ' target="_blank" rel="noopener noreferrer"')}${course.classesZh ? `<details class="teaching-classes"><summary>${esc(u.classesLabel)}</summary><p lang="zh-CN">${esc(course.classesZh)}</p></details>` : ''}</li>`).join('')}</ul></section>`;
+<section id="teaching-history"><h2>${esc(u.teachingHistory)}</h2><ul class="teaching-history">${teachingHistory.map(course => `<li><span class="period">${esc(course[`term${suffix}`])}</span> ${link(course.url, course[`title${suffix}`], ' target="_blank" rel="noopener noreferrer"')}${course.classesZh ? ` <details class="teaching-classes"><summary>${esc(u.classesLabel)}</summary><p lang="zh-CN">${esc(course.classesZh)}</p></details>` : ''}</li>`).join('')}</ul></section>`;
 }
 
 function about(lang) {
