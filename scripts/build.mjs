@@ -1,16 +1,25 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { profile, topics, publications, courses, teachingHistory, ui } from '../content.mjs';
+import { profile, publications, courses, teachingHistory, ui } from '../content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'classic-20261024';
+const assetVersion = 'publications-20261024';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
+const sortedPapers = entries => [...entries].sort((a, b) => b.year - a.year || (b.publishedDate || '').localeCompare(a.publishedDate || ''));
+const publishedPapers = sortedPapers(publications.filter(paper => paper.status === 'published'));
+const preprintPapers = sortedPapers(publications.filter(paper => paper.status === 'preprint'));
+
+function publicationSummary(lang) {
+  return lang === 'zh'
+    ? `${publishedPapers.length} 篇已发表论文${preprintPapers.length ? ` · ${preprintPapers.length} 篇预印本` : ''}`
+    : `${publishedPapers.length} published papers${preprintPapers.length ? ` · ${preprintPapers.length} preprints` : ''}`;
+}
 
 function header(lang, page) {
   const u = ui[lang];
@@ -53,23 +62,46 @@ function home(lang) {
   const academicLinks = profile.academicLinks.filter(item => item.url !== profile.officialHomepage).map(item => link(item.url, item[`label${suffix}`]));
   return `${profile.portrait ? `<img class="profile-photo" src="${esc(profile.portrait)}" width="200" height="280" alt="${esc(profile.nameZh)} / ${esc(profile.nameEn)}" fetchpriority="high">` : ''}
 <section class="intro"><h1 class="welcome">${esc(u.welcome)}</h1><p>${appointment}</p><p>${esc(u.heroBody)}</p><p class="profile-links">${[link(`${href(lang, 'research')}#publications`, u.allPapers), ...academicLinks].join(' · ')}</p></section>
-<section id="research-interests"><h2>${esc(u.interests)}</h2><ul>${topics.map(topic => `<li>${link(`${href(lang, 'research')}#${topic.id}`, topic[lang].title)}${lang === 'zh' ? '：' : ': '}${esc(topic[lang].description)}</li>`).join('')}</ul></section>
-<section><h2>${esc(u.recentPapers)}</h2>${papers([...publications].sort((a, b) => b.year - a.year).slice(0, 3))}<p>${link(`${href(lang, 'research')}#publications`, u.allPapers)}</p></section>
+<section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang })}<p>${link(`${href(lang, 'research')}#publications`, u.allPapers)} <span class="publication-summary">(${esc(publicationSummary(lang))})</span></p></section>
 <section><h2>${esc(u.homeContact)}</h2>${contact(lang)}</section>`;
 }
 
-function papers(entries) {
-  return `<ol class="publication-list">${[...entries].sort((a, b) => b.year - a.year).map(paper => `<li><span class="paper-authors">${esc(paper.authors)} (${esc(paper.year)}).</span> ${paper.url ? link(paper.url, paper.title, ' class="paper-title" target="_blank" rel="noopener noreferrer"') : `<span class="paper-title">${esc(paper.title)}</span>`}. <em class="paper-venue">${esc(paper.venue || (paper.status === 'preprint' ? 'Preprint' : ''))}</em>${paper.pdf ? ` ${link(paper.pdf, 'PDF', ' class="paper-links" target="_blank" rel="noopener noreferrer"')}` : ''}</li>`).join('\n')}</ol>`;
+function papers(entries, { lang = 'en', start = 1 } = {}) {
+  return `<ol class="publication-list" start="${start}">${entries.map(paper => {
+    const title = paper.url ? link(paper.url, paper.title, ' class="paper-title" target="_blank" rel="noopener noreferrer"') : `<span class="paper-title">${esc(paper.title)}</span>`;
+    const volume = paper.volume ? ` ${esc(paper.volume)}${paper.issue ? `(${esc(paper.issue)})` : ''}` : '';
+    const details = [paper.articleNumber ? `${lang === 'zh' ? '文章编号' : 'Article'} ${esc(paper.articleNumber)}` : '', paper.pages ? esc(paper.pages) : ''].filter(Boolean).join(', ');
+    const revisedYear = paper.updatedDate?.slice(0, 4);
+    const revision = revisedYear && Number(revisedYear) > paper.year ? `; ${lang === 'zh' ? '修订于' : 'revised'} ${esc(revisedYear)}` : '';
+    const venue = paper.status === 'preprint'
+      ? `<em class="paper-venue">${paper.arxiv ? `arXiv:${esc(paper.arxiv)}` : esc(lang === 'zh' ? '预印本' : 'Preprint')} (${esc(paper.year)}${revision})</em>`
+      : `<em class="paper-venue">${esc(paper.journal || paper.venue || '')}</em>${volume} (${esc(paper.year)})${details ? `, ${details}` : ''}`;
+    const doi = paper.doi ? ` <span class="paper-doi">DOI: ${link(`https://doi.org/${paper.doi}`, paper.doi, ' target="_blank" rel="noopener noreferrer"')}</span>` : '';
+    return `<li><span class="paper-authors">${esc(paper.authors)}.</span> ${title}. ${venue}.${doi}${paper.pdf ? ` ${link(paper.pdf, 'PDF', ' class="paper-links" target="_blank" rel="noopener noreferrer"')}` : ''}</li>`;
+  }).join('\n')}</ol>`;
+}
+
+function papersByYear(entries, section, lang) {
+  const years = [...new Set(entries.map(paper => paper.year))];
+  const navigation = years.length > 1
+    ? `<nav class="publication-years" aria-label="${lang === 'zh' ? '按年份浏览论文' : 'Browse papers by year'}">${years.map(year => link(`#${section}-${year}`, String(year))).join(' · ')}</nav>`
+    : '';
+  let start = 1;
+  return navigation + years.map(year => {
+    const group = entries.filter(paper => paper.year === year);
+    const list = papers(group, { lang, start });
+    start += group.length;
+    return `<section class="publication-year" aria-labelledby="${section}-${year}"><h3 id="${section}-${year}">${year}</h3>${list}</section>`;
+  }).join('\n');
 }
 
 function research(lang) {
   const u = ui[lang];
-  const preprints = publications.filter(paper => paper.status === 'preprint');
-  const published = publications.filter(paper => paper.status !== 'preprint');
   return `<h1>${esc(u.researchHeading)}</h1><p>${esc(u.researchIntro)}</p>
-${preprints.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papers(preprints)}</section>` : ''}
-<section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${published.length ? papers(published) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
-<section><h2>${esc(u.interests)}</h2><ul class="research-topics">${topics.map(topic => `<li id="${esc(topic.id)}"><strong>${esc(topic[lang].title)}</strong><p>${esc(topic[lang].description)}</p><p>${esc(topic[lang].keywords.join(' · '))}</p><p><em>${esc(topic[lang].question)}</em></p></li>`).join('\n')}</ul></section>`;
+<p class="publication-summary">${esc(publicationSummary(lang))}</p>
+<nav class="research-nav" aria-label="${esc(u.onThisPage)}">${[link('#publications', u.publishedPapers), ...(preprintPapers.length ? [link('#preprints', u.preprints)] : [])].join(' · ')}</nav>
+<section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${publishedPapers.length ? papersByYear(publishedPapers, 'published', lang) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
+${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papersByYear(preprintPapers, 'preprint', lang)}</section>` : ''}`;
 }
 
 function courseResources(course, lang) {
