@@ -11,7 +11,7 @@ const assetVersion = 'publications-20261024';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
-const sortedPapers = entries => [...entries].sort((a, b) => b.year - a.year || (b.publishedDate || '').localeCompare(a.publishedDate || ''));
+const sortedPapers = entries => [...entries].sort((a, b) => b.year - a.year || (b.publishedDate || '').localeCompare(a.publishedDate || '') || (b.arxiv || '').localeCompare(a.arxiv || ''));
 const publishedPapers = sortedPapers(publications.filter(paper => paper.status === 'published'));
 const preprintPapers = sortedPapers(publications.filter(paper => paper.status === 'preprint'));
 
@@ -62,12 +62,12 @@ function home(lang) {
   const academicLinks = profile.academicLinks.filter(item => item.url !== profile.officialHomepage).map(item => link(item.url, item[`label${suffix}`]));
   return `${profile.portrait ? `<img class="profile-photo" src="${esc(profile.portrait)}" width="200" height="280" alt="${esc(profile.nameZh)} / ${esc(profile.nameEn)}" fetchpriority="high">` : ''}
 <section class="intro"><h1 class="welcome">${esc(u.welcome)}</h1><p>${appointment}</p><p>${esc(u.heroBody)}</p><p class="profile-links">${[link(`${href(lang, 'research')}#publications`, u.allPapers), ...academicLinks].join(' · ')}</p></section>
-<section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang })}<p>${link(`${href(lang, 'research')}#publications`, u.allPapers)} <span class="publication-summary">(${esc(publicationSummary(lang))})</span></p></section>
+<section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang, start: publishedPapers.length })}<p>${link(`${href(lang, 'research')}#publications`, u.allPapers)} <span class="publication-summary">(${esc(publicationSummary(lang))})</span></p></section>
 <section><h2>${esc(u.homeContact)}</h2>${contact(lang)}</section>`;
 }
 
-function papers(entries, { lang = 'en', start = 1 } = {}) {
-  return `<ol class="publication-list" start="${start}">${entries.map(paper => {
+function papers(entries, { lang = 'en', start = entries.length } = {}) {
+  return `<ol class="publication-list" reversed start="${start}">${entries.map(paper => {
     const title = paper.url ? link(paper.url, paper.title, ' class="paper-title" target="_blank" rel="noopener noreferrer"') : `<span class="paper-title">${esc(paper.title)}</span>`;
     const volume = paper.volume ? ` ${esc(paper.volume)}${paper.issue ? `(${esc(paper.issue)})` : ''}` : '';
     const details = [paper.articleNumber ? `${lang === 'zh' ? '文章编号' : 'Article'} ${esc(paper.articleNumber)}` : '', paper.pages ? esc(paper.pages) : ''].filter(Boolean).join(', ');
@@ -81,26 +81,12 @@ function papers(entries, { lang = 'en', start = 1 } = {}) {
   }).join('\n')}</ol>`;
 }
 
-function papersByYear(entries, section, lang) {
-  const years = [...new Set(entries.map(paper => paper.year))];
-  const navigation = years.length > 1
-    ? `<nav class="publication-years" aria-label="${lang === 'zh' ? '按年份浏览论文' : 'Browse papers by year'}">${years.map(year => link(`#${section}-${year}`, String(year))).join(' · ')}</nav>`
-    : '';
-  let start = 1;
-  return navigation + years.map(year => {
-    const group = entries.filter(paper => paper.year === year);
-    const list = papers(group, { lang, start });
-    start += group.length;
-    return `<section class="publication-year" aria-labelledby="${section}-${year}"><h3 id="${section}-${year}">${year}</h3>${list}</section>`;
-  }).join('\n');
-}
-
 function research(lang) {
   const u = ui[lang];
   return `<h1>${esc(u.researchHeading)}</h1><p>${esc(u.researchIntro)}</p>
 <p class="publication-summary">${esc(publicationSummary(lang))}</p>
 <nav class="research-nav" aria-label="${esc(u.onThisPage)}">${[link('#publications', u.publishedPapers), ...(preprintPapers.length ? [link('#preprints', u.preprints)] : [])].join(' · ')}</nav>
-<section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${publishedPapers.length ? papersByYear(publishedPapers, 'published', lang) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
+<section id="publications"><h2>${esc(u.publishedPapers)}</h2><p>${esc(u.papersIntro)}</p>${publishedPapers.length ? papers(publishedPapers, { lang }) : `<p>${esc(u.papersEmpty)}</p>`}<p>${link(profile.publicationsUrl, u.officialPapers)}</p></section>
 ${preprintPapers.length ? `<section id="preprints"><h2>${esc(u.preprints)}</h2>${papers(preprintPapers, { lang })}</section>` : ''}`;
 }
 
