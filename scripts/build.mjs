@@ -74,10 +74,8 @@ function papers(entries, { lang = 'en', start = entries.length } = {}) {
     const title = paper.url ? link(paper.url, paper.title, ' class="paper-title" target="_blank" rel="noopener noreferrer"') : `<span class="paper-title">${esc(paper.title)}</span>`;
     const volume = paper.volume ? ` ${esc(paper.volume)}${paper.issue ? `(${esc(paper.issue)})` : ''}` : '';
     const details = [paper.articleNumber ? `${lang === 'zh' ? '文章编号' : 'Article'} ${esc(paper.articleNumber)}` : '', paper.pages ? esc(paper.pages) : ''].filter(Boolean).join(', ');
-    const revisedYear = paper.updatedDate?.slice(0, 4);
-    const revision = revisedYear && Number(revisedYear) > paper.year ? `; ${lang === 'zh' ? '修订于' : 'revised'} ${esc(revisedYear)}` : '';
     const venue = paper.status === 'preprint'
-      ? `<em class="paper-venue">${paper.arxiv ? `arXiv:${esc(paper.arxiv)}` : esc(lang === 'zh' ? '预印本' : 'Preprint')} (${esc(paper.year)}${revision})</em>`
+      ? `<em class="paper-venue">${paper.arxiv ? `arXiv:${esc(paper.arxiv)}` : esc(lang === 'zh' ? '预印本' : 'Preprint')}</em>`
       : `<em class="paper-venue">${esc(paper.journal || paper.venue || '')}</em>${volume} (${esc(paper.year)})${details ? `, ${details}` : ''}`;
     const doi = paper.doi ? ` <span class="paper-doi">DOI: ${link(`https://doi.org/${paper.doi}`, paper.doi, ' target="_blank" rel="noopener noreferrer"')}</span>` : '';
     return `<li><span class="paper-authors">${esc(paper.authors)}.</span> ${title}. ${venue}.${doi}${paper.pdf ? ` ${link(paper.pdf, 'PDF', ' class="paper-links" target="_blank" rel="noopener noreferrer"')}` : ''}</li>`;
