@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'teaching-inline-20261024';
+const assetVersion = 'preprints-stats-20261025';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
@@ -33,9 +33,16 @@ ${['home', 'research', 'teaching'].map(key => link(href(lang, key), u.nav[key], 
 </nav></header>`;
 }
 
-function footer(lang) {
+function footer(lang, page) {
   const u = ui[lang];
-  return `<footer class="site-footer"><span>${esc(u.footerNote)} ${esc(profile.updated.replaceAll('-', '.'))}</span> · ${link('#top', u.top)}</footer>`;
+  const report = `https://www.stats4u.net/${lang === 'zh' ? 'zh' : 'en'}/live/3772303648`;
+  const stats = page === '404' ? '' : `<div class="site-statistics" data-statistics-host="${esc(new URL(origin).hostname)}">
+<p>${link(report, lang === 'zh' ? '查看每日浏览量' : 'Daily page views', ' target="_blank" rel="noopener noreferrer"')}</p>
+<a href="${report}" target="_blank" rel="noopener noreferrer"><img class="statistics-counter" data-statistics-src="https://www.stats4u.net/c/3772303648-2000.png?plang=${lang}" width="190" height="120" alt="${lang === 'zh' ? '访问统计：今日、昨日、累计及在线人数' : 'Visitor statistics: today, yesterday, total and online'}"></a>
+<p class="statistics-note">${lang === 'zh' ? '从启用后开始统计' : 'Counts from installation'} · ${link(`https://www.stats4u.net/${lang === 'zh' ? 'zh' : 'en'}/privacy`, lang === 'zh' ? '统计隐私说明' : 'Statistics privacy', ' target="_blank" rel="noopener noreferrer"')}</p>
+<noscript><p>${lang === 'zh' ? '启用 JavaScript 后可显示计数器。' : 'Enable JavaScript to display the counter.'}</p></noscript>
+</div>`;
+  return `<footer class="site-footer"><span>${esc(u.footerNote)} ${esc(profile.updated.replaceAll('-', '.'))}</span> · ${link('#top', u.top)}${stats}</footer>`;
 }
 
 function layout(lang, page, body) {
@@ -43,8 +50,8 @@ function layout(lang, page, body) {
   const title = page === 'home' ? u.title : `${u.nav[page] || u.noPage} · ${lang === 'zh' ? profile.nameZh : profile.nameEn}`;
   const canonical = `${origin}${href(lang, page)}`;
   return `<!doctype html>
-<html lang="${u.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1e4f8a"><title>${esc(title)}</title><meta name="description" content="${esc(u.description)}"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css?v=${assetVersion}"><script src="/assets/site.js?v=${assetVersion}" defer></script>${page === '404' ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${esc(canonical)}"><link rel="alternate" hreflang="zh-CN" href="${origin}${href('zh', page)}"><link rel="alternate" hreflang="en" href="${origin}${href('en', page)}">`}<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(u.description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:locale" content="${lang === 'zh' ? 'zh_CN' : 'en_US'}"></head><body class="page-${page}">
-${header(lang, page)}<main id="main" class="site-main" tabindex="-1">${body}</main>${footer(lang)}</body></html>`;
+<html lang="${u.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080f26"><title>${esc(title)}</title><meta name="description" content="${esc(u.description)}"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css?v=${assetVersion}"><script src="/assets/site.js?v=${assetVersion}" defer></script>${page === '404' ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${esc(canonical)}"><link rel="alternate" hreflang="zh-CN" href="${origin}${href('zh', page)}"><link rel="alternate" hreflang="en" href="${origin}${href('en', page)}">`}<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(u.description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:locale" content="${lang === 'zh' ? 'zh_CN' : 'en_US'}"></head><body class="page-${page}">
+${header(lang, page)}<main id="main" class="site-main" tabindex="-1">${body}</main>${footer(lang, page)}</body></html>`;
 }
 
 function contact(lang) {
