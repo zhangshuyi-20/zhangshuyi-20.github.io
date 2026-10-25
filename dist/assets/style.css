@@ -92,11 +92,8 @@ li + li { margin-top: 7px; }
 .site-footer { clear: both; margin-top: 64px; padding-top: 17px; border-top: 1px solid #e5e5e5; color: #666; font-size: 14px; }
 .site-footer p { margin: 0; }
 .site-footer a { color: #555; }
-.site-statistics { margin-top: 14px; }
-.daily-views-count { display: block; font-size: 22px; font-weight: 700; line-height: 1.4; font-variant-numeric: tabular-nums; }
-.daily-views-label { display: block; font-size: 14px; }
-.site-statistics .statistics-note { margin: 4px 0 0; }
-.statistics-note { font-size: 12px; }
+.site-statistics { white-space: nowrap; }
+.daily-views-count { font: inherit; font-variant-numeric: tabular-nums; }
 @media (max-width: 760px) {
   body { margin: 18px; font-size: 16px; line-height: 1.7; }
   .skip-link { left: 18px; }
