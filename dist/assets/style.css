@@ -19,9 +19,9 @@ img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
 .skip-link { position: absolute; z-index: 10; top: -100px; left: 30px; padding: 8px 14px; background: #fff; color: #0000ee; }
 .skip-link:focus { top: 8px; }
-.site-header { background: #1e4f8a; color: #fff; }
+.site-header { background: #080f26 url('/assets/starfield-header.png') center 50% / cover no-repeat; color: #fff; }
 .site-nav { display: flex; align-items: center; flex-wrap: wrap; min-height: 86px; padding: 12px 10px; column-gap: 24px; row-gap: 6px; }
-.site-nav a { display: inline-block; color: #fff; font-size: 18px; line-height: 1.5; text-decoration: none; }
+.site-nav a { display: inline-block; color: #fff; font-size: 18px; line-height: 1.5; text-decoration: none; text-shadow: 0 1px 3px #020615, 0 0 9px #020615; }
 .site-nav a:visited { color: #fff; }
 .site-name { padding: 8px 0; white-space: nowrap; }
 .nav-link { padding: 8px 0; }
@@ -37,9 +37,9 @@ img { max-width: 100%; height: auto; }
 .profile-photo { display: block; float: right; width: 200px; max-width: 28%; height: auto; margin: 0 0 24px 40px; }
 p { margin: 15px 0; }
 h1, h2, h3 { color: #000; font-family: inherit; font-weight: 700; line-height: 1.35; }
-h1 { margin: 0 0 25px; font-size: 36px; }
-h2 { margin: 31px 0 22px; font-size: 36px; }
-.page-home h2 { font-size: 36px; }
+h1 { margin: 0 0 25px; font-size: 28px; }
+h2 { margin: 31px 0 22px; font-size: 28px; }
+.page-home h2 { font-size: 28px; }
 .welcome { margin: 18px 0; font-size: 18px; font-weight: 400; line-height: inherit; }
 h3 { margin: 22px 0 10px; font-size: 22px; }
 .page-heading { margin-bottom: 30px; }
@@ -92,6 +92,10 @@ li + li { margin-top: 7px; }
 .site-footer { clear: both; margin-top: 64px; padding-top: 17px; border-top: 1px solid #e5e5e5; color: #666; font-size: 14px; }
 .site-footer p { margin: 0; }
 .site-footer a { color: #555; }
+.site-statistics { margin-top: 14px; }
+.site-statistics p { margin: 4px 0; }
+.statistics-counter { display: block; width: 190px; height: 120px; margin: 8px 0; }
+.statistics-note { font-size: 12px; }
 @media (max-width: 760px) {
   body { margin: 18px; font-size: 16px; line-height: 1.7; }
   .skip-link { left: 18px; }
@@ -103,9 +107,9 @@ li + li { margin-top: 7px; }
   .site-nav .language-switch { font-size: 14px; }
   .site-main { margin-top: 34px; }
   .profile-photo { width: 150px; max-width: 32%; margin-left: 22px; margin-bottom: 16px; }
-  h1 { font-size: 30px; }
+  h1 { font-size: 24px; }
   .welcome { font-size: 16px; }
-  h2, .page-home h2 { font-size: 28px; margin-top: 28px; margin-bottom: 17px; }
+  h2, .page-home h2 { font-size: 24px; margin-top: 28px; margin-bottom: 17px; }
   h3 { font-size: 20px; }
   ul, ol { padding-left: 27px; }
   .publication-list { padding-left: 25px; }

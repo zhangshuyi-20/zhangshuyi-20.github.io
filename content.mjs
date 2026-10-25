@@ -5,7 +5,7 @@ export const profile = {
   nameZh: '张磊',
   nameEn: 'Lei Zhang',
   initials: 'LZ',
-  updated: '2026-10-24',
+  updated: '2026-10-25',
   origin: 'https://zhangshuyi-20.github.io',
   // 个人照片：替换 dist/assets/portrait.jpg 即可更新。
   portrait: '/assets/portrait.jpg',
@@ -277,10 +277,30 @@ export const topics = [
   },
 ];
 
-// 公开论文目录：published 为已发表论文；preprint 仅用于已公开的预印本。
+// 公开论文目录：published 为已发表论文；preprint 为公开预印本，包括作者明确同意在本站公开的 PDF。
 // 作者按署名顺序填写；期刊条目可含 journal、volume、issue、pages、articleNumber、doi。
-// 以正式出版年份 year 排序；publishedDate 用于同年排序，未公开稿件请勿加入。
+// 以年份 year 排序；publishedDate 用于同年排序。本地稿件须经作者明确同意公开后加入。
 export const publications = [
+  {
+    title: 'Camassa–Holm peakons under momentum transport noise. Part I: Global well-posedness and probabilistic stability',
+    authors: 'Lei Zhang, Xiuting Li',
+    year: 2026,
+    status: 'preprint',
+    url: '/files/preprints/stochastic_ch_part_I_single_peakon_cas.pdf',
+    // 作者授权在本站公开的日期，用于预印本排序。
+    publishedDate: '2026-10-25',
+    topic: 'stochastic-pdes',
+  },
+  {
+    title: 'Camassa–Holm peakons under momentum transport noise. Part II: Multipeakon stability and continuous dependence',
+    authors: 'Lei Zhang, Xiuting Li',
+    year: 2026,
+    status: 'preprint',
+    url: '/files/preprints/stochastic_ch_part_II_multipeakon.pdf',
+    // 作者授权在本站公开的日期，用于预印本排序。
+    publishedDate: '2026-10-25',
+    topic: 'stochastic-pdes',
+  },
   {
     "title": "New Global Carleman Estimates and Null Controllability for Forward/Backward Semilinear Parabolic SPDEs",
     "authors": "Lei Zhang, Fan Xu, Bin Liu",
