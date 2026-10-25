@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'preprints-stats-20261025';
+const assetVersion = 'daily-visits-20261025';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
@@ -35,12 +35,10 @@ ${['home', 'research', 'teaching'].map(key => link(href(lang, key), u.nav[key], 
 
 function footer(lang, page) {
   const u = ui[lang];
-  const report = `https://www.stats4u.net/${lang === 'zh' ? 'zh' : 'en'}/live/3772303648`;
-  const stats = page === '404' ? '' : `<div class="site-statistics" data-statistics-host="${esc(new URL(origin).hostname)}">
-<p>${link(report, lang === 'zh' ? '查看每日浏览量' : 'Daily page views', ' target="_blank" rel="noopener noreferrer"')}</p>
-<a href="${report}" target="_blank" rel="noopener noreferrer"><img class="statistics-counter" data-statistics-src="https://www.stats4u.net/c/3772303648-2000.png?plang=${lang}" width="190" height="120" alt="${lang === 'zh' ? '访问统计：今日、昨日、累计及在线人数' : 'Visitor statistics: today, yesterday, total and online'}"></a>
-<p class="statistics-note">${lang === 'zh' ? '从启用后开始统计' : 'Counts from installation'} · ${link(`https://www.stats4u.net/${lang === 'zh' ? 'zh' : 'en'}/privacy`, lang === 'zh' ? '统计隐私说明' : 'Statistics privacy', ' target="_blank" rel="noopener noreferrer"')}</p>
-<noscript><p>${lang === 'zh' ? '启用 JavaScript 后可显示计数器。' : 'Enable JavaScript to display the counter.'}</p></noscript>
+  const stats = page === '404' ? '' : `<div class="site-statistics" data-statistics-host="${esc(new URL(origin).hostname)}" data-statistics-src="https://www.stats4u.net/c/3772303648-2000.png?plang=${lang}">
+<strong class="daily-views-count" data-daily-views aria-live="polite" title="${lang === 'zh' ? '暂时无法获取今日浏览量' : 'Today’s page views are unavailable'}">—</strong>
+<span class="daily-views-label">${lang === 'zh' ? '日访问量' : 'Daily visits'}</span>
+<p class="statistics-note">${link(`https://www.stats4u.net/${lang === 'zh' ? 'zh' : 'en'}/privacy`, lang === 'zh' ? '统计隐私说明' : 'Statistics privacy', ' target="_blank" rel="noopener noreferrer"')}</p>
 </div>`;
   return `<footer class="site-footer"><span>${esc(u.footerNote)} ${esc(profile.updated.replaceAll('-', '.'))}</span> · ${link('#top', u.top)}${stats}</footer>`;
 }
