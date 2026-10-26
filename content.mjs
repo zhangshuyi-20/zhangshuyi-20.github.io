@@ -748,18 +748,6 @@ export const publications = [
     "topic": "stochastic-pdes"
   },
   {
-    "title": "Hyperbolic Keller-Segel equations with sensitivity adjustment in Besov spaces: Global well-posedness and blow-up criteria",
-    "authors": "Bo Bi, Lei Zhang",
-    "year": 2025,
-    "arxiv": "2509.03125",
-    "doi": "10.48550/arXiv.2509.03125",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2509.03125",
-    "publishedDate": "2025-09-03",
-    "updatedDate": "2025-09-13",
-    "topic": "dispersive-equations"
-  },
-  {
     "title": "New results on the global solvability and blow-up for a class of weakly dissipative Camassa-Holm equations",
     "authors": "Lei Zhang, Bin Liu",
     "year": 2020,
