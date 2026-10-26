@@ -760,30 +760,6 @@ export const publications = [
     "topic": "dispersive-equations"
   },
   {
-    "title": "A chemotaxis-fluid model driven by Lévy noise in R²",
-    "authors": "Fan Xu, Lei Zhang, Bin Liu",
-    "year": 2024,
-    "arxiv": "2408.05685",
-    "doi": "10.48550/arXiv.2408.05685",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2408.05685",
-    "publishedDate": "2024-08-11",
-    "updatedDate": "2024-08-11",
-    "topic": "stochastic-pdes"
-  },
-  {
-    "title": "The influence of stochastic forcing on strong solutions to the Incompressible Slice Model in 2D bounded domain",
-    "authors": "Lei Zhang, Yu Shi, Chaozhu Hu, Weifeng Wang, Bin Liu",
-    "year": 2020,
-    "arxiv": "2011.00913",
-    "doi": "10.48550/arXiv.2011.00913",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2011.00913",
-    "publishedDate": "2020-11-02",
-    "updatedDate": "2020-11-02",
-    "topic": "stochastic-pdes"
-  },
-  {
     "title": "New results on the global solvability and blow-up for a class of weakly dissipative Camassa-Holm equations",
     "authors": "Lei Zhang, Bin Liu",
     "year": 2020,
