@@ -282,46 +282,6 @@ export const topics = [
 // 以年份 year 排序；publishedDate 用于同年排序。本地稿件须经作者明确同意公开后加入。
 export const publications = [
   {
-    title: 'Noise regularization for the three-dimensional Boussinesq system',
-    authors: 'Lei Zhang, Bo Yang, Fan Xu',
-    year: 2026,
-    status: 'preprint',
-    url: '/files/preprints/noise-regularization-boussinesq.pdf',
-    // 作者授权在本站公开的日期，用于预印本排序。
-    publishedDate: '2026-10-25',
-    topic: 'stochastic-pdes',
-  },
-  {
-    title: 'Local and global null controllability for nonlinear stochastic biharmonic equations in high dimensions',
-    authors: 'Lei Zhang, Bin Liu',
-    year: 2026,
-    status: 'preprint',
-    url: '/files/preprints/Stochastic_Biharmonic_Hessian_Control.pdf',
-    // 作者授权在本站公开的日期，用于预印本排序。
-    publishedDate: '2026-10-25',
-    topic: 'stochastic-control',
-  },
-  {
-    title: 'Camassa–Holm peakons under momentum transport noise. Part I: Global well-posedness and probabilistic stability',
-    authors: 'Lei Zhang, Xiuting Li',
-    year: 2026,
-    status: 'preprint',
-    url: '/files/preprints/stochastic_ch_part_I_single_peakon_cas.pdf',
-    // 作者授权在本站公开的日期，用于预印本排序。
-    publishedDate: '2026-10-25',
-    topic: 'stochastic-pdes',
-  },
-  {
-    title: 'Camassa–Holm peakons under momentum transport noise. Part II: Multipeakon stability and continuous dependence',
-    authors: 'Lei Zhang, Xiuting Li',
-    year: 2026,
-    status: 'preprint',
-    url: '/files/preprints/stochastic_ch_part_II_multipeakon.pdf',
-    // 作者授权在本站公开的日期，用于预印本排序。
-    publishedDate: '2026-10-25',
-    topic: 'stochastic-pdes',
-  },
-  {
     "title": "New Global Carleman Estimates and Null Controllability for Forward/Backward Semilinear Parabolic SPDEs",
     "authors": "Lei Zhang, Fan Xu, Bin Liu",
     "year": 2026,
@@ -753,7 +713,7 @@ export const publications = [
     "year": 2026,
     "arxiv": "2610.27658",
     "status": "preprint",
-    "url": "/files/preprints/Schrodinger_control_zhang_li.pdf",
+    "url": "https://arxiv.org/abs/2610.27658",
     "publishedDate": "2026-10-20",
     "updatedDate": "2026-10-20",
     "topic": "stochastic-control"
