@@ -828,7 +828,7 @@ export const ui = {
     researchIntro: 'My research focuses on nonlinear partial differential equations, particularly stochastic partial differential equations and the associated stochastic control problems.',
     researchKicker: 'RESEARCH', researchHeading: 'Research', researchLead: 'Nonlinearity, randomness, and long-time behavior.',
     onThisPage: 'ON THIS PAGE', topicsLabel: 'Research interests', papersLabel: 'Publications',
-    papersIntro: 'Journal articles, listed by publication year. Titles and DOIs link to publication records.', papersEmpty: 'Publication list forthcoming', papersEmptyDetail: 'Each entry will include the public manuscript, publication details, and full-text links.',
+    papersIntro: '', papersEmpty: 'Publication list forthcoming', papersEmptyDetail: 'Each entry will include the public manuscript, publication details, and full-text links.',
     recentPapers: 'Recent Publications', allPapers: 'View publications', officialPapers: 'Publications on the HUST faculty page', officialHomepage: 'HUST profile',
     teachingKicker: 'TEACHING', teachingHeading: 'Teaching', teachingLead: 'Concepts, methods, and materials, organized by course.',
     teachingIntro: 'Teaching records from my official HUST faculty page. Course titles are translated into English; the original records are linked below.',
