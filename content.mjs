@@ -748,18 +748,6 @@ export const publications = [
     "topic": "stochastic-pdes"
   },
   {
-    "title": "New results on the global solvability and blow-up for a class of weakly dissipative Camassa-Holm equations",
-    "authors": "Lei Zhang, Bin Liu",
-    "year": 2020,
-    "arxiv": "2004.01843",
-    "doi": "10.48550/arXiv.2004.01843",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2004.01843",
-    "publishedDate": "2020-04-04",
-    "updatedDate": "2025-04-16",
-    "topic": "dispersive-equations"
-  },
-  {
     "title": "Global exact controllability for Schrödinger equations with Lipschitz and logarithmic nonlinearities",
     "authors": "Lei Zhang, Xiuting Li",
     "year": 2026,
