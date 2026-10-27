@@ -77,8 +77,7 @@ function papers(entries, { lang = 'en', start = entries.length } = {}) {
     const venue = paper.status === 'preprint'
       ? `<em class="paper-venue">${paper.arxiv ? `arXiv:${esc(paper.arxiv)}` : esc(lang === 'zh' ? '预印本' : 'Preprint')}</em>`
       : `<em class="paper-venue">${esc(paper.journal || paper.venue || '')}</em>${volume} (${esc(paper.year)})${details ? `, ${details}` : ''}`;
-    const doi = paper.doi ? ` <span class="paper-doi">DOI: ${link(`https://doi.org/${paper.doi}`, paper.doi, ' target="_blank" rel="noopener noreferrer"')}</span>` : '';
-    return `<li><span class="paper-authors">${esc(paper.authors)}.</span> ${title}. ${venue}.${doi}${paper.pdf ? ` ${link(paper.pdf, 'PDF', ' class="paper-links" target="_blank" rel="noopener noreferrer"')}` : ''}</li>`;
+    return `<li><span class="paper-authors">${esc(paper.authors)}.</span> ${title}. ${venue}.${paper.pdf ? ` ${link(paper.pdf, 'PDF', ' class="paper-links" target="_blank" rel="noopener noreferrer"')}` : ''}</li>`;
   }).join('\n')}</ol>`;
 }
 

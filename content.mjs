@@ -286,7 +286,7 @@ export const publications = [
     authors: 'Lei Zhang, Xiuting Li',
     year: 2026,
     status: 'preprint',
-    url: '/files/preprints/stochastic_ch_part_I_single_peakon_cas.pdf',
+    url: '',
     // 作者授权在本站公开的日期，用于预印本排序。
     publishedDate: '2026-10-25',
     topic: 'stochastic-pdes',
@@ -767,7 +767,7 @@ export const ui = {
     researchIntro: '研究方向是非线性偏微分方程，特别是随机偏微分方程及其随机控制问题。',
     researchKicker: 'RESEARCH', researchHeading: '研究', researchLead: '非线性、随机性与方程的长期行为。',
     onThisPage: '本页内容', topicsLabel: '研究方向', papersLabel: '论文目录',
-    papersIntro: '论文按正式出版年份倒序排列；点击题目或 DOI 可访问出版信息。', papersEmpty: '论文目录待补充', papersEmptyDetail: '公开稿件、出版信息和全文链接将随条目一同更新。',
+    papersIntro: '论文按正式出版年份倒序排列；点击题目可访问出版信息。', papersEmpty: '论文目录待补充', papersEmptyDetail: '公开稿件、出版信息和全文链接将随条目一同更新。',
     recentPapers: '近期论文', allPapers: '查看论文目录', officialPapers: '华中科技大学教师主页论文目录', officialHomepage: '学校主页',
     teachingKicker: 'TEACHING', teachingHeading: '教学', teachingLead: '按课程整理概念、方法与学习资料。',
     teachingIntro: '以下授课信息整理自学院个人主页，点击课程名称可查看原始记录。',
