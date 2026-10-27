@@ -101,7 +101,7 @@ function teaching(lang) {
   const suffix = lang === 'zh' ? 'Zh' : 'En';
   return `<h1>${esc(u.teachingHeading)}</h1>
 <section id="calculus"><ul class="course-list">${courses.map(course => `<li id="${esc(course.id)}">${esc(course[lang].title)}${course.resources.length ? courseResources(course, lang) : ''}</li>`).join('')}</ul></section>
-<section id="teaching-history"><h2>${esc(u.teachingHistory)}</h2><ul class="teaching-history">${teachingHistory.map(course => `<li><span class="period">${esc(course[`term${suffix}`])}</span> ${link(course.url, course[`title${suffix}`], ' target="_blank" rel="noopener noreferrer"')}${course.classesZh ? ` <details class="teaching-classes"><summary>${esc(u.classesLabel)}</summary><p lang="zh-CN">${esc(course.classesZh)}</p></details>` : ''}</li>`).join('')}</ul></section>`;
+<section id="teaching-history"><h2>${esc(u.teachingHistory)}</h2><ul class="teaching-history">${teachingHistory.map(course => `<li><span class="period">${esc(course[`term${suffix}`])}</span> ${esc(course[`title${suffix}`])}${course.classesZh ? ` <details class="teaching-classes"><summary>${esc(u.classesLabel)}</summary><p lang="zh-CN">${esc(course.classesZh)}</p></details>` : ''}</li>`).join('')}</ul></section>`;
 }
 
 function about(lang) {
