@@ -682,42 +682,6 @@ export const publications = [
     "topic": "stochastic-pdes"
   },
   {
-    "title": "Global well-posedness and scattering for energy-critical Schrödinger equations with conservative Marcus noise",
-    "authors": "Bin Liu, Fan Xu, Bo Yang, Lei Zhang",
-    "year": 2026,
-    "arxiv": "2609.37534",
-    "doi": "10.48550/arXiv.2609.37534",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2609.37534",
-    "publishedDate": "2026-09-29",
-    "updatedDate": "2026-09-29",
-    "topic": "stochastic-pdes"
-  },
-  {
-    "title": "Global well-posedness and scattering for defocusing energy-critical inhomogeneous NLS in dimensions d ≥ 3",
-    "authors": "Bo Yang, Lei Zhang, Bin Liu",
-    "year": 2026,
-    "arxiv": "2604.16856",
-    "doi": "10.48550/arXiv.2604.16856",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2604.16856",
-    "publishedDate": "2026-04-18",
-    "updatedDate": "2026-04-18",
-    "topic": "dispersive-equations"
-  },
-  {
-    "title": "Local pathwise solutions and regularization by noises for the stochastic hyperbolic Keller-Segel equation",
-    "authors": "Tengyu Li, Lei Zhang",
-    "year": 2025,
-    "arxiv": "2510.17673",
-    "doi": "10.48550/arXiv.2510.17673",
-    "status": "preprint",
-    "url": "https://arxiv.org/abs/2510.17673",
-    "publishedDate": "2025-10-20",
-    "updatedDate": "2025-11-19",
-    "topic": "stochastic-pdes"
-  },
-  {
     "title": "Global exact controllability for Schrödinger equations with Lipschitz and logarithmic nonlinearities",
     "authors": "Lei Zhang, Xiuting Li",
     "year": 2026,
