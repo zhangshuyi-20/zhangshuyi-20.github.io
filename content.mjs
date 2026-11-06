@@ -23,6 +23,11 @@ export const profile = {
     { labelZh: '华中科技大学教师主页', labelEn: 'Official HUST faculty page', url: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/index.htm' },
     { labelZh: 'ORCID', labelEn: 'ORCID', url: 'https://orcid.org/0000-0003-1514-3795' },
   ],
+  // 首页常用网页；按此处顺序显示。
+  usefulLinks: [
+    { labelZh: 'Terence Tao 的博客：What’s new?', labelEn: 'Terence Tao’s blog: What’s new?', url: 'https://terrytao.wordpress.com/' },
+    { labelZh: 'arXiv 首页', labelEn: 'arXiv homepage', url: 'https://arxiv.org/' },
+  ],
 };
 
 // 教育及博士后经历；zh 为中文，en 为英文。
@@ -753,7 +758,7 @@ export const ui = {
   zh: {
     lang: 'zh-CN', title: '张磊 Lei Zhang · 华中科技大学', description: '张磊（Lei Zhang），华中科技大学数学与统计学院副教授。研究非线性偏微分方程、随机偏微分方程及随机控制。个人主页提供研究论文、教学信息与联系方式。',
     nav: { home: '首页', research: '研究与论文', teaching: '教学', about: '学术简介' },
-    welcome: '欢迎访问！', homeContact: '联系方式', currentPosition: '现任职务',
+    welcome: '欢迎访问！', homeContact: '联系方式', usefulLinksHeading: '常用网页', currentPosition: '现任职务',
     appointmentBefore: '我目前在', appointmentBetween: '任', appointmentAfter: '。',
     preprints: '预印本', publishedPapers: '已发表论文',
     skip: '跳至正文', menu: '打开导航菜单', closeMenu: '收起导航菜单',
@@ -788,7 +793,7 @@ export const ui = {
   en: {
     lang: 'en', title: 'Lei Zhang · Huazhong University of Science and Technology', description: 'Lei Zhang, Associate Professor at the School of Mathematics and Statistics, Huazhong University of Science and Technology. Research in nonlinear PDEs, stochastic PDEs, and stochastic control; publications and teaching information.',
     nav: { home: 'Homepage', research: 'Research', teaching: 'Teaching', about: 'Academic profile' },
-    welcome: 'Welcome!', homeContact: 'Contact Me', currentPosition: 'Current position',
+    welcome: 'Welcome!', homeContact: 'Contact Me', usefulLinksHeading: 'Useful Links', currentPosition: 'Current position',
     appointmentBefore: 'I am an', appointmentBetween: 'at the', appointmentAfter: '.',
     preprints: 'Preprints', publishedPapers: 'Published papers',
     skip: 'Skip to main content', menu: 'Open navigation', closeMenu: 'Close navigation',
