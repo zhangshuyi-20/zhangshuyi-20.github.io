@@ -66,7 +66,7 @@ function home(lang) {
   return `${profile.portrait ? `<img class="profile-photo" src="${esc(profile.portrait)}" width="200" height="280" alt="${esc(profile.nameZh)} / ${esc(profile.nameEn)}" fetchpriority="high">` : ''}
 <section class="intro"><h1 class="welcome">${esc(u.welcome)}</h1><p>${appointment}</p><p>${esc(u.heroBody)}</p><p class="profile-links">${[link(`${href(lang, 'research')}#publications`, u.allPapers), ...academicLinks].join(' · ')}</p></section>
 <section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang, start: publishedPapers.length })}</section>
-<section id="useful-links"><h2>${esc(u.usefulLinksHeading)}</h2><ul>${profile.usefulLinks.map(item => `<li>${link(item.url, item[`label${suffix}`], ' target="_blank" rel="noopener noreferrer"')}</li>`).join('')}</ul></section>
+<section id="useful-links"><h2>${esc(u.usefulLinksHeading)}</h2><p>${profile.usefulLinks.map(item => link(item.url, item[`label${suffix}`], ' target="_blank" rel="noopener noreferrer"')).join(' · ')}</p></section>
 <section><h2>${esc(u.homeContact)}</h2>${contact(lang)}</section>`;
 }
 
