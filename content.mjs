@@ -1,5 +1,7 @@
 // 网站内容编辑文件：在 GitHub 上修改并提交后，网页会自动重新生成。
 // 保留引号、逗号和括号；中文和英文内容需要分别修改。
+const orcidId = '0000-0003-1514-3795';
+
 // 基本资料：姓名、职称、单位、公开邮箱、学术链接。
 export const profile = {
   nameZh: '张磊',
@@ -21,7 +23,12 @@ export const profile = {
   publicationsUrl: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/lwcg/2160295/list/index.htm',
   academicLinks: [
     { labelZh: '华中科技大学教师主页', labelEn: 'Official HUST faculty page', url: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/index.htm' },
-    { labelZh: 'ORCID', labelEn: 'ORCID', url: 'https://orcid.org/0000-0003-1514-3795' },
+    {
+      labelZh: `ORCID iD ${orcidId}`,
+      labelEn: `ORCID iD ${orcidId}`,
+      url: `https://orcid.org/${orcidId}`,
+      icon: '/assets/orcid-id.svg',
+    },
   ],
   // 首页常用网页；按此处顺序显示。
   usefulLinks: [

@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'heading-20261027';
+const assetVersion = 'orcid-20261110';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
@@ -55,6 +55,12 @@ function contact(lang) {
   return `<ul class="contact-list"><li>${esc(address)}</li>${profile.email ? `<li>Email: ${link(`mailto:${profile.email}`, profile.email)}</li>` : ''}</ul>`;
 }
 
+function academicLink(item, suffix) {
+  const label = item[`label${suffix}`];
+  if (!item.icon) return link(item.url, label);
+  return `<a href="${esc(item.url)}"><img class="academic-link-icon" src="${esc(item.icon)}" width="24" height="24" alt=""> ${esc(label)}</a>`;
+}
+
 function home(lang) {
   const u = ui[lang];
   const suffix = lang === 'zh' ? 'Zh' : 'En';
@@ -62,7 +68,7 @@ function home(lang) {
   const appointment = lang === 'zh'
     ? `${esc(u.appointmentBefore)} ${affiliation} ${esc(u.appointmentBetween)}${esc(profile.positionZh)}${esc(u.appointmentAfter)}`
     : `${esc(u.appointmentBefore)} ${esc(profile.positionEn.toLowerCase())} ${esc(u.appointmentBetween)} ${affiliation}${esc(u.appointmentAfter)}`;
-  const academicLinks = profile.academicLinks.filter(item => item.url !== profile.officialHomepage).map(item => link(item.url, item[`label${suffix}`]));
+  const academicLinks = profile.academicLinks.filter(item => item.url !== profile.officialHomepage).map(item => academicLink(item, suffix));
   return `${profile.portrait ? `<img class="profile-photo" src="${esc(profile.portrait)}" width="200" height="280" alt="${esc(profile.nameZh)} / ${esc(profile.nameEn)}" fetchpriority="high">` : ''}
 <section class="intro"><h1 class="welcome">${esc(u.welcome)}</h1><p>${appointment}</p><p>${esc(u.heroBody)}</p><p class="profile-links">${[link(`${href(lang, 'research')}#publications`, u.allPapers), ...academicLinks].join(' · ')}</p></section>
 <section><h2>${esc(u.recentPapers)}</h2>${papers(publishedPapers.slice(0, 3), { lang, start: publishedPapers.length })}</section>
@@ -109,7 +115,7 @@ function about(lang) {
   const suffix = lang === 'zh' ? 'Zh' : 'En';
   return `<h1>${esc(u.aboutHeading)}</h1><p>${esc(u.aboutBody)}</p>
 <section><h2>${esc(u.currentPosition)}</h2><p>${esc(profile[`position${suffix}`])} · ${esc(profile[`affiliation${suffix}`])}</p></section>
-<section><h2>${esc(u.contact)}</h2>${contact(lang)}<ul>${profile.academicLinks.map(item => `<li>${link(item.url, item[`label${suffix}`])}</li>`).join('')}</ul></section>`;
+<section><h2>${esc(u.contact)}</h2>${contact(lang)}<ul>${profile.academicLinks.map(item => `<li>${academicLink(item, suffix)}</li>`).join('')}</ul></section>`;
 }
 
 for (const lang of ['zh', 'en']) {
