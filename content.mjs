@@ -294,6 +294,16 @@ export const topics = [
 // 以年份 year 排序；publishedDate 用于同年排序。本地稿件须经作者明确同意公开后加入。
 export const publications = [
   {
+    title: 'Nonradial threshold scattering for the planar cubic--quintic NLS',
+    authors: 'Bo Yang, Lei Zhang, Bin Liu',
+    year: 2026,
+    arxiv: '2611.23741',
+    status: 'preprint',
+    url: 'https://arxiv.org/abs/2611.23741',
+    publishedDate: '2026-11-18',
+    topic: 'dispersive-equations',
+  },
+  {
     title: 'Camassa–Holm peakons under momentum transport noise. Part I: Global well-posedness and probabilistic stability',
     authors: 'Lei Zhang, Xiuting Li',
     year: 2026,
