@@ -95,6 +95,14 @@ li + li { margin-top: 7px; }
 .site-footer a { color: #555; }
 .site-statistics { white-space: nowrap; }
 .daily-views-count { font: inherit; font-variant-numeric: tabular-nums; }
+html.theme-dark { color-scheme: dark; color: #e5e7eb; background: #101827; }
+.theme-dark h1, .theme-dark h2, .theme-dark h3 { color: #f1f5f9; }
+.theme-dark .site-main a, .theme-dark .site-footer a { color: #93c5fd; }
+.theme-dark .site-main a:visited, .theme-dark .site-footer a:visited { color: #c4b5fd; }
+.theme-dark .site-main a:hover, .theme-dark .site-footer a:hover { color: #bfdbfe; }
+.theme-dark .site-footer { color: #adb8c8; border-top-color: #334155; }
+.theme-dark .skip-link { background: #182338; color: #93c5fd; outline-color: #93c5fd; }
+.theme-dark .site-main :focus-visible, .theme-dark .site-footer :focus-visible { outline-color: #93c5fd; }
 @media (max-width: 760px) {
   body { margin: 18px; font-size: 16px; line-height: 1.7; }
   .skip-link { left: 18px; }

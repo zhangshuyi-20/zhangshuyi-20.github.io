@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 // GitHub Actions 自动使用个人主页域名；本地生成使用 profile.origin。
 const origin = (process.env.SITE_ORIGIN || (process.env.GITHUB_REPOSITORY_OWNER ? `https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io` : profile.origin)).replace(/\/+$/, '');
-const assetVersion = 'orcid-20261110';
+const assetVersion = 'home-dark-20261124';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const href = (lang, page = 'home') => `${lang === 'zh' ? '/zh' : ''}/${page === 'home' ? '' : `${page}/`}`;
 const link = (url, label, extra = '') => `<a href="${esc(url)}"${extra}>${esc(label)}</a>`;
@@ -45,7 +45,7 @@ function layout(lang, page, body) {
   const title = page === 'home' ? u.title : `${u.nav[page] || u.noPage} · ${lang === 'zh' ? profile.nameZh : profile.nameEn}`;
   const canonical = `${origin}${href(lang, page)}`;
   return `<!doctype html>
-<html lang="${u.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080f26"><title>${esc(title)}</title><meta name="description" content="${esc(u.description)}"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css?v=${assetVersion}"><script src="/assets/site.js?v=${assetVersion}" defer></script>${page === '404' ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${esc(canonical)}"><link rel="alternate" hreflang="zh-CN" href="${origin}${href('zh', page)}"><link rel="alternate" hreflang="en" href="${origin}${href('en', page)}">`}<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(u.description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:locale" content="${lang === 'zh' ? 'zh_CN' : 'en_US'}"></head><body class="page-${page}">
+<html lang="${u.lang}"${page === 'home' ? ' class="theme-dark"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080f26"><title>${esc(title)}</title><meta name="description" content="${esc(u.description)}"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css?v=${assetVersion}"><script src="/assets/site.js?v=${assetVersion}" defer></script>${page === '404' ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${esc(canonical)}"><link rel="alternate" hreflang="zh-CN" href="${origin}${href('zh', page)}"><link rel="alternate" hreflang="en" href="${origin}${href('en', page)}">`}<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(u.description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:locale" content="${lang === 'zh' ? 'zh_CN' : 'en_US'}"></head><body class="page-${page}">
 ${header(lang, page)}<main id="main" class="site-main" tabindex="-1">${body}</main>${footer(lang, page)}</body></html>`;
 }
 
