@@ -9,8 +9,8 @@ export const profile = {
   initials: 'LZ',
   updated: '2026-10-25',
   origin: 'https://zhangshuyi-20.github.io',
-  // 个人照片：替换 dist/assets/portrait.jpg 即可更新。
-  portrait: '/assets/portrait.jpg',
+  // 个人照片：将新照片上传到 dist/assets，并在下方填写对应路径。
+  portrait: '/assets/portrait-20261125.png',
   email: 'lei_zhang@hust.edu.cn',
   positionZh: '副教授',
   positionEn: 'Associate Professor',
