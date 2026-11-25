@@ -33,7 +33,7 @@ export const profile = {
   // 首页常用网页；按此处顺序显示。
   usefulLinks: [
     { labelZh: "Terence Tao 的博客: What's new?", labelEn: "Terence Tao's blog: What's new?", url: 'https://terrytao.wordpress.com/' },
-    { labelZh: 'arXiv 首页', labelEn: 'arXiv homepage', url: 'https://arxiv.org/' },
+    { labelZh: 'arXiv', labelEn: 'arXiv', url: 'https://arxiv.org/' },
     { labelZh: 'Open Math OS', labelEn: 'Open Math OS', url: 'https://www.openmathmodel.org/' },
   ],
 };
