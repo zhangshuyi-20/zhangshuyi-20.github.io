@@ -24,8 +24,8 @@ export const profile = {
   academicLinks: [
     { labelZh: '华中科技大学教师主页', labelEn: 'Official HUST faculty page', url: 'https://faculty.hust.edu.cn/ZHANGLEI/zh_CN/index.htm' },
     {
-      labelZh: `ORCID iD ${orcidId}`,
-      labelEn: `ORCID iD ${orcidId}`,
+      labelZh: orcidId,
+      labelEn: orcidId,
       url: `https://orcid.org/${orcidId}`,
       icon: '/assets/orcid-id.svg',
     },
