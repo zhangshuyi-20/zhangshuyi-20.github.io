@@ -100,6 +100,10 @@ html.theme-dark { color-scheme: dark; color: #e5e7eb; background: #101827; }
 .theme-dark .site-main a, .theme-dark .site-footer a { color: #93c5fd; }
 .theme-dark .site-main a:visited, .theme-dark .site-footer a:visited { color: #c4b5fd; }
 .theme-dark .site-main a:hover, .theme-dark .site-footer a:hover { color: #bfdbfe; }
+.theme-dark .publication-summary, .theme-dark .resource-list .resource-type { color: #adb8c8; }
+.theme-dark .course-topics summary, .theme-dark .teaching-classes summary { color: #93c5fd; }
+.theme-dark .course-topics summary:hover, .theme-dark .teaching-classes summary:hover { color: #bfdbfe; }
+.theme-dark .publication-year h3 { border-bottom-color: #334155; }
 .theme-dark .site-footer { color: #adb8c8; border-top-color: #334155; }
 .theme-dark .skip-link { background: #182338; color: #93c5fd; outline-color: #93c5fd; }
 .theme-dark .site-main :focus-visible, .theme-dark .site-footer :focus-visible { outline-color: #93c5fd; }
