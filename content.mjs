@@ -35,6 +35,7 @@ export const profile = {
     { labelZh: "Tao 的博客: What's new?", labelEn: "Tao's blog: What's new?", url: 'https://terrytao.wordpress.com/' },
     { labelZh: 'arXiv', labelEn: 'arXiv', url: 'https://arxiv.org/' },
     { labelZh: 'Open Math OS', labelEn: 'Open Math OS', url: 'https://www.openmathmodel.org/' },
+    { labelZh: 'ChatGPT', labelEn: 'ChatGPT', url: 'https://chatgpt.com/' },
   ],
 };
 
