@@ -8,7 +8,7 @@
 }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 24px; }
-body { margin: 30px; font-size: 18px; line-height: 1.65; overflow-wrap: break-word; }
+body { margin: 30px; font-size: 17px; line-height: 1.65; overflow-wrap: break-word; }
 a { color: #0000ee; text-decoration: underline; text-underline-offset: 2px; }
 a:visited { color: #551a8b; }
 a:hover { color: #0000bb; }
@@ -75,14 +75,14 @@ li + li { margin-top: 7px; }
 .course-topics ol, .course-topics ul { margin: 10px 0 15px; }
 .course-topics li p { margin: 3px 0 10px; }
 .resource-list { margin-top: 10px; }
-.resource-list .resource-type { margin-left: 10px; color: #555; font-size: 16px; }
+.resource-list .resource-type { margin-left: 10px; color: #555; font-size: 15px; }
 .teaching-history li { margin-bottom: 8px; }
 .teaching-classes { display: inline; margin: 0; }
 .teaching-classes summary { display: inline-flex; align-items: baseline; gap: 4px; margin-left: .35em; list-style: none; cursor: pointer; font-size: 15px; color: #0000ee; text-decoration: underline; }
 .teaching-classes summary::-webkit-details-marker { display: none; }
 .teaching-classes summary::before { content: '▸'; font-size: .85em; }
 .teaching-classes[open] summary::before { content: '▾'; }
-.teaching-classes p { margin: 4px 0 0; font-size: 16px; }
+.teaching-classes p { margin: 4px 0 0; font-size: 15px; }
 .teaching-history .period { display: inline-block; min-width: 125px; margin-right: 16px; }
 .education-list { list-style: none; padding-left: 0; }
 .education-list > li { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 0 20px; margin: 18px 0; }
@@ -108,7 +108,7 @@ html.theme-dark { color-scheme: dark; color: #e5e7eb; background: #101827; }
 .theme-dark .skip-link { background: #182338; color: #93c5fd; outline-color: #93c5fd; }
 .theme-dark .site-main :focus-visible, .theme-dark .site-footer :focus-visible { outline-color: #93c5fd; }
 @media (max-width: 760px) {
-  body { margin: 18px; font-size: 16px; line-height: 1.7; }
+  body { margin: 18px; font-size: 15px; line-height: 1.7; }
   .skip-link { left: 18px; }
   .site-nav { min-height: 0; padding: 14px; column-gap: 22px; row-gap: 2px; }
   .site-nav a { font-size: 16px; }
