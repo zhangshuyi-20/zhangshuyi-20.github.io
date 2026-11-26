@@ -306,16 +306,6 @@ export const publications = [
     topic: 'dispersive-equations',
   },
   {
-    title: 'Camassa–Holm peakons under momentum transport noise. Part I: Global well-posedness and probabilistic stability',
-    authors: 'Lei Zhang, Xiuting Li',
-    year: 2026,
-    status: 'preprint',
-    url: '',
-    // 作者授权在本站公开的日期，用于预印本排序。
-    publishedDate: '2026-10-25',
-    topic: 'stochastic-pdes',
-  },
-  {
     "title": "New Global Carleman Estimates and Null Controllability for Forward/Backward Semilinear Parabolic SPDEs",
     "authors": "Lei Zhang, Fan Xu, Bin Liu",
     "year": 2026,
